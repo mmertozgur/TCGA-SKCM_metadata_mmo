@@ -83,7 +83,4 @@ colnames(miRSeq_normalized) = gsub("read_count_","",colnames(miRSeq_normalized))
 colnames(miRNA_counts_normalized) = gsub("read_count_","",colnames(miRNA_counts_normalized))
 
 
-#####CLinical Data
-colnames(colData(TCGA_SKCM_Transcriptome))
 
-skcm_clinical_whole_data = colData(TCGA_SKCM_Transcriptome)
