@@ -79,8 +79,27 @@ miRNA_counts_normalized = cpm(miRNA_counts, log = FALSE, prior.count = 1)
 
 miRSeq_normalized = cbind(miRNA_names,miRNA_counts_normalized)
 
-colnames(miRSeq_normalized) = gsub("read_count_","",colnames(miRSeq_normalized))###Look this later. 
+colnames(miRSeq_normalized) = gsub("read_count_","",colnames(miRSeq_normalized))
 colnames(miRNA_counts_normalized) = gsub("read_count_","",colnames(miRNA_counts_normalized))
+
+df_RNASeq_normalized_wgenename = as.data.frame(RNAseq_normalized_wgenename)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
