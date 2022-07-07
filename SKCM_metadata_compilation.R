@@ -83,16 +83,19 @@ colnames(miRSeq_normalized) = gsub("read_count_","",colnames(miRSeq_normalized))
 colnames(miRNA_counts_normalized) = gsub("read_count_","",colnames(miRNA_counts_normalized))
 
 df_RNASeq_normalized_wgenename = as.data.frame(RNAseq_normalized_wgenename)
-# mergetry <- merge(df_clinical, skcm_clinical_whole_data[47],
-#                           by = 'row.names', all = TRUE)
 
-
-
-RNASeq_clean = df_RNASeq_normalized_wgenename %>% distinct()
-RNASeq_ok = t(RNASeq_clean)
+RNASeq_ok = df_RNASeq_normalized_wgenename %>% distinct()
+RNASeq_ok = t(RNASeq_ok)
 
 miRSeq_ok = t(miRSeq_normalized)
 colnames(miRSeq_ok) = miRNA_names[1:1881,]
 miRSeq_ok = data.frame(miRSeq_ok[-1,])
-
-View(skcm_clinical)
+RNASeq_ok = data.frame(RNASeq_ok)
+library(tibble)
+RNASeq_ok = matrix(RNASeq_ok)
+miRSeq_ok = matrix(miRSeq_ok)
+rownames_to_column(RNASeq_ok, var="Sample Barcode") %>% head
+merge1 = merge(RNASeq_ok, miRSeq_ok,
+                  by = 'row.names', all = TRUE)
+FINAL_TCGA_SKCM = merge(merge1, skcm_clinical,
+                        by = "row.names", all = TRUE)
