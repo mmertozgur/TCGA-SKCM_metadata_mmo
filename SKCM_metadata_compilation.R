@@ -88,21 +88,11 @@ df_RNASeq_normalized_wgenename = as.data.frame(RNAseq_normalized_wgenename)
 
 
 
+RNASeq_clean = df_RNASeq_normalized_wgenename %>% distinct()
+RNASeq_ok = t(RNASeq_clean)
 
+miRSeq_ok = t(miRSeq_normalized)
+colnames(miRSeq_ok) = miRNA_names[1:1881,]
+miRSeq_ok = data.frame(miRSeq_ok[-1,])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+View(skcm_clinical)
