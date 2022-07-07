@@ -83,6 +83,9 @@ colnames(miRSeq_normalized) = gsub("read_count_","",colnames(miRSeq_normalized))
 colnames(miRNA_counts_normalized) = gsub("read_count_","",colnames(miRNA_counts_normalized))
 
 df_RNASeq_normalized_wgenename = as.data.frame(RNAseq_normalized_wgenename)
+# mergetry <- merge(df_clinical, skcm_clinical_whole_data[47],
+#                           by = 'row.names', all = TRUE)
+
 
 
 

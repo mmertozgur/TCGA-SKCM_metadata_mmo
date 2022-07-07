@@ -13,7 +13,6 @@ i = 1
 while(i <= length(duplicate_logicals)) {
   if (duplicate_logicals[i] == TRUE) {
     df_duplicated_genes=rbind(df_duplicated_genes,df_RNASeq_normalized_wgenename[i,])
-    
   }
   i = i + 1
 }
