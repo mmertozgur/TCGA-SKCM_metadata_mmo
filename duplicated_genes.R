@@ -24,7 +24,7 @@ y = df_duplicated_genes[rowSums(df_duplicated_genes[]) ==  0, ]
 
 
 
-
+  
 
 
 

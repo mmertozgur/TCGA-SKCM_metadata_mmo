@@ -93,9 +93,22 @@ miRSeq_ok = data.frame(miRSeq_ok[-1,])
 RNASeq_ok = data.frame(RNASeq_ok)
 
 
-merge1 = merge(RNASeq_ok, miRSeq_ok, by.x = NULL, by.y = NULL, by = "row.names"
-                  , all = TRUE)
-FINAL_TCGA_SKCM = merge(merge1, skcm_clinical, by.x = NULL, by.y = NULL,
-                        by = "row.names", all = TRUE)
+# merge1 = merge(RNASeq_ok, miRSeq_ok, by.x = NULL, by.y = NULL, by = "row.names"
+#                   , all = TRUE)
+# FINAL_TCGA_SKCM = merge(merge1, skcm_clinical, by.x = NULL, by.y = NULL,
+#                         by = "row.names", all = TRUE)
 
 
+RNASeq_ok = data.frame(RNASeq_ok)
+
+merge1 = full_join(RNASeq_ok, miRSeq_ok, by = "row.names", all =TRUE)
+
+
+
+
+
+
+
+
+
+#more dplyr will be used for the next ones. 
