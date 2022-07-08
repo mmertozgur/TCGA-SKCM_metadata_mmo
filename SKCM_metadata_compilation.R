@@ -84,33 +84,18 @@ colnames(miRNA_counts_normalized) = gsub("read_count_","",colnames(miRNA_counts_
 
 df_RNASeq_normalized_wgenename = as.data.frame(RNAseq_normalized_wgenename)
 
-RNASeq_ok = df_RNASeq_normalized_wgenename %>% distinct()
+RNASeq_ok = df_RNASeq_normalized_wgenename %>%  distinct()
 RNASeq_ok = t(RNASeq_ok)
 
 miRSeq_ok = t(miRSeq_normalized)
 colnames(miRSeq_ok) = miRNA_names[1:1881,]
 miRSeq_ok = data.frame(miRSeq_ok[-1,])
 RNASeq_ok = data.frame(RNASeq_ok)
-library(tibble)
+
 
 merge1 = merge(RNASeq_ok, miRSeq_ok, by.x = NULL, by.y = NULL, by = "row.names"
                   , all = TRUE)
 FINAL_TCGA_SKCM = merge(merge1, skcm_clinical, by.x = NULL, by.y = NULL,
                         by = "row.names", all = TRUE)
 
-# rm(miRNA_counts)
-# rm(miRNA_names)
-# rm(miRNA_counts_normalized)
-# rm(query_infomiRSeq)
-# rm(query_infoRNASeq)
-# rm(query_miRSeq)
-# rm(query_RNAseq)
-# rm(RNASeq_genes_SKCM)
-# rm(skcm_clinical_whole_data)
-# rm(SKCM_miRSeqraw)
-# rm(SKCM_RNASeqraw)
-# rm(TCGA_SKCM_Transcriptome)
-# rm(TCGA_SKCM_miRSeq)
-# rm(RNAseq_normalized)
-# rm(RNAseq_normalized_wgenename)
 
