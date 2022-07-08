@@ -94,8 +94,10 @@ RNASeq_ok = data.frame(RNASeq_ok)
 library(tibble)
 RNASeq_ok = matrix(RNASeq_ok)
 miRSeq_ok = matrix(miRSeq_ok)
-rownames_to_column(RNASeq_ok, var="Sample Barcode") %>% head
-merge1 = merge(RNASeq_ok, miRSeq_ok,
-                  by = 'row.names', all = TRUE)
+
+merge1 = merge(RNASeq_ok, miRSeq_ok, by.x = NULL, by.y = NULL, by = "row.names"
+                  , all = TRUE)
 FINAL_TCGA_SKCM = merge(merge1, skcm_clinical,
                         by = "row.names", all = TRUE)
+
+
