@@ -97,7 +97,7 @@ miRSeq_ok = matrix(miRSeq_ok)
 
 merge1 = merge(RNASeq_ok, miRSeq_ok, by.x = NULL, by.y = NULL, by = "row.names"
                   , all = TRUE)
-FINAL_TCGA_SKCM = merge(merge1, skcm_clinical,
+FINAL_TCGA_SKCM = merge(merge1, skcm_clinical, by.x = NULL, by.y = NULL,
                         by = "row.names", all = TRUE)
 
 
