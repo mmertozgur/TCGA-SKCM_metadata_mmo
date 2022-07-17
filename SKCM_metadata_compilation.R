@@ -104,11 +104,3 @@ RNASeq_ok = data.frame(RNASeq_ok)
 merge1 = full_join(RNASeq_ok, miRSeq_ok, by = "row.names", all =TRUE)
 
 
-
-
-
-
-
-
-
-#more dplyr will be used for the next ones. 
